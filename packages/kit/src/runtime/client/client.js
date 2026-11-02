@@ -1339,11 +1339,11 @@ async function load_root_error_page({ status, error, url, route }) {
  * @returns {Promise<URL | undefined>}
  */
 async function get_rerouted_url(url) {
-	const href = url.href;
+	// const href = url.href;
 
-	if (reroute_cache.has(href)) {
-		return reroute_cache.get(href);
-	}
+	// if (reroute_cache.has(href)) {
+	// 	return reroute_cache.get(href);
+	// }
 
 	let rerouted;
 
@@ -1373,10 +1373,10 @@ async function get_rerouted_url(url) {
 			return rerouted;
 		})();
 
-		reroute_cache.set(href, promise);
+		// reroute_cache.set(href, promise);
 		rerouted = await promise;
 	} catch (e) {
-		reroute_cache.delete(href);
+		// reroute_cache.delete(href);
 		if (DEV) {
 			// in development, print the error...
 			console.error(e);
